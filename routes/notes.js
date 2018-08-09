@@ -46,6 +46,7 @@ router.get('/:id', (req, res, next) => {
     .first('notes.id', 'title', 'content', 'folders.id as folderId', 'folders.name as folderName')
     .from('notes')
     .leftJoin('folders', 'notes.folder_id', 'folders.id')
+    .where('notes.id', id)
     .modify(queryBuilder => {
       if(folderId) {
         queryBuilder.where('folder_id', folderId);
@@ -95,9 +96,9 @@ router.put('/:id', (req, res, next) => {
         .where('notes.id', id);
     })
     .then(([result]) => {
+      console.log('result', result, typeof result);
       if(result) {
-        res.status(200);
-        res.json(result);
+        res.status(200).json(result);
       } else {
         next();
       }
