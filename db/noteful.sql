@@ -95,10 +95,10 @@
 --   ('personal'), ('work'), ('journal'), ('business'), ('scratch');
 
 
-SELECT title, tags.name as tags, folders.name as folder FROM notes
-LEFT JOIN folders ON notes.folder_id = folders.id
-LEFT JOIN notes_tags ON notes.id = notes_tags.note_id
-LEFT JOIN tags ON notes_tags.tag_id = tags.id;
+-- SELECT title, tags.name as tags, folders.name as folder FROM notes
+-- LEFT JOIN folders ON notes.folder_id = folders.id
+-- LEFT JOIN notes_tags ON notes.id = notes_tags.note_id
+-- LEFT JOIN tags ON notes_tags.tag_id = tags.id;
 
 -- INSERT INTO notes_tags (note_id, tag_id) VALUES
---   (1000, 10), (1001, 11), (1005, 14);
+-- (1001, 11), (1005, 14);
